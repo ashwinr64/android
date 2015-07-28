@@ -3,6 +3,11 @@
 
   <remote  name="xda"
            fetch=".." />
+           
+   <remote  name="caf"
+           sync-c="true"
+	   fetch="git://codeaurora.org/" 
+	   review="codeaurora.org"/>
 
   <remote  name="github"
            fetch="https://github.com/" />
@@ -19,6 +24,25 @@
            remote="aosp"
            sync-c="true"
            sync-j="4" />
+           
+  <remote  name="par"
+            fetch="git://github.com/ashwinr64/"
+            sync-c="true"
+            sync-j="4"
+            revision="lollipop_falcon" />
+  
+  <project path="frameworks/webview" name="arter97/android_frameworks_webview" remote="github" revision="cm-12.1" />
+  <project groups="qcom,default" name="android_hardware_qcom_bt" path="hardware/qcom/bt" remote="par" revision="lollipop_msm8226"/>
+  <project groups="qcom,default" name="android_hardware_qcom_audio" path="hardware/qcom/audio" remote="par" revision="lollipop_msm8226"/>
+  <project groups="qcom,default" name="android_hardware_qcom_display" path="hardware/qcom/display" remote="par" revision="lollipop_msm8226"/>
+  <project groups="qcom,default" name="android_hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="par" revision="lollipop_msm8226"/>
+
+  <project name="android_device_qcom_sepolicy" path="device/qcom/sepolicy" remote="par" revision="lollipop_falcon"/>
+  <project name="android_device_qcom_msm8226" path="device/qcom/msm8226" remote="par" revision="lollipop_falcon"/>
+  <project name="android_device_qcom_common" path="device/qcom/common" remote="par" revision="lollipop_falcon" />
+  <project path="device/motorola/falcon" name="android_device_motorola_falcon-1" remote="par" revision="lollipop_falcon"/>
+  <project path="kernel/motorola/msm8226" name="android_kernel_motorola_msm8226" remote="par" revision="lollipop_falcon"/>
+  <project path="vendor/motorola/falcon" name="proprietary_vendor_motorola" remote="par" revision="lollipop_falcon"/>
 
   <project path="build" name="android_build" remote="omnirom" revision="android-5.1" groups="pdk,tradefed" >
     <copyfile src="core/root.mk" dest="Makefile" />
@@ -53,7 +77,6 @@
   <project path="device/generic/x86_64" name="device/generic/x86_64" groups="pdk" />
   <project path="device/google/accessory/arduino" name="device/google/accessory/arduino" groups="device" />
   <project path="device/google/accessory/demokit" name="device/google/accessory/demokit" groups="device" />
-  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="omnirom" revision="android-5.1" groups="pdk" />
   <project path="device/sample" name="device/sample" groups="pdk" />
   <project path="docs/source.android.com" name="platform/docs/source.android.com" groups="pdk-cw-fs" />
   <project path="external/aac" name="platform/external/aac" groups="pdk" />
@@ -285,7 +308,7 @@
   <project path="external/zlib" name="platform/external/zlib" groups="pdk" />
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs" />
-  <project path="frameworks/av" name="android_frameworks_av" remote="omnirom" revision="android-5.1" groups="pdk" />
+  <project groups="pdk" name="platform/frameworks/av" path="frameworks/av" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>  
   <project path="frameworks/base" name="android_frameworks_base" remote="omnirom" revision="android-5.1" groups="pdk-cw-fs" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
@@ -295,7 +318,7 @@
   <project path="frameworks/minikin" name="platform/frameworks/minikin" groups="pdk-cw-fs" />
   <project path="frameworks/ml" name="platform/frameworks/ml" groups="pdk-cw-fs" />
   <project path="frameworks/multidex" name="platform/frameworks/multidex" groups="pdk-cw-fs" />
-  <project path="frameworks/native" name="android_frameworks_native" remote="omnirom" revision="android-5.1" groups="pdk" />
+  <project groups="pdk" name="platform/frameworks/native" path="frameworks/native" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
   <project path="frameworks/opt/bitmap" name="platform/frameworks/opt/bitmap" />
   <project path="frameworks/opt/bluetooth" name="platform/frameworks/opt/bluetooth" groups="pdk-cw-fs" />
   <project path="frameworks/opt/calendar" name="platform/frameworks/opt/calendar" groups="pdk-cw-fs" />
@@ -319,53 +342,38 @@
   <project path="frameworks/rs" name="platform/frameworks/rs" groups="pdk" />
   <project path="frameworks/support" name="android_frameworks_support" remote="omnirom" revision="android-5.1" />
   <project path="frameworks/volley" name="platform/frameworks/volley" groups="pdk-cw-fs" />
-  <project path="frameworks/webview" name="android_frameworks_webview" remote="omnirom" revision="android-5.1" groups="pdk-cw-fs" />
   <project path="frameworks/wilhelm" name="android_frameworks_wilhelm" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/akm" name="platform/hardware/akm" />
-  <project path="hardware/broadcom/libbt" name="android_hardware_broadcom_libbt" remote="omnirom" revision="android-5.1" groups="pdk" />
-  <project path="hardware/broadcom/wlan" name="android_hardware_broadcom_wlan" remote="omnirom" revision="android-5.1" groups="broadcom_wlan" />
-  <project path="hardware/intel/audio_media" name="platform/hardware/intel/audio_media" groups="intel" />
-  <project path="hardware/intel/bootstub" name="platform/hardware/intel/bootstub" groups="intel" />
-  <project path="hardware/intel/common/bd_prov" name="platform/hardware/intel/common/bd_prov" groups="intel" />
-  <project path="hardware/intel/common/libmix" name="platform/hardware/intel/common/libmix" groups="intel" />
-  <project path="hardware/intel/common/libstagefrighthw" name="platform/hardware/intel/common/libstagefrighthw" groups="intel" />
-  <project path="hardware/intel/common/libva" name="platform/hardware/intel/common/libva" groups="intel" />
-  <project path="hardware/intel/common/libwsbm" name="platform/hardware/intel/common/libwsbm" groups="intel" />
-  <project path="hardware/intel/common/omx-components" name="platform/hardware/intel/common/omx-components" groups="intel" />
-  <project path="hardware/intel/common/utils" name="platform/hardware/intel/common/utils" groups="intel" />
-  <project path="hardware/intel/common/wrs_omxil_core" name="platform/hardware/intel/common/wrs_omxil_core" groups="intel" />
-  <project path="hardware/intel/img/hwcomposer" name="platform/hardware/intel/img/hwcomposer" groups="intel" />
-  <project path="hardware/intel/img/libdrm" name="platform/hardware/intel/img/libdrm" groups="intel" />
-  <project path="hardware/intel/img/psb_headers" name="platform/hardware/intel/img/psb_headers" groups="intel" />
-  <project path="hardware/intel/img/psb_video" name="platform/hardware/intel/img/psb_video" groups="intel" />
-  <project path="hardware/invensense" name="platform/hardware/invensense" groups="invensense" />
-  <project path="hardware/libhardware" name="android_hardware_libhardware" remote="omnirom" revision="android-5.1" groups="pdk" />
-  <project path="hardware/libhardware_legacy" name="android_hardware_libhardware_legacy" remote="omnirom" revision="android-5.1" groups="pdk" />
-  <project path="hardware/nvidia/audio" name="platform/hardware/nvidia/audio" groups="nvidia_audio" />
-  <project path="hardware/nvidia/tegra124" name="platform/hardware/nvidia/tegra124" groups="tegra124" />
-  <project path="hardware/qcom/audio" name="android_hardware_qcom_audio" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/audio-caf" name="android_hardware_qcom_audio-caf" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/bt" name="android_hardware_qcom_bt" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/display" name="android_hardware_qcom_display" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/display-caf" name="android_hardware_qcom_display-caf" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/keymaster" name="android_hardware_qcom_keymaster" remote="omnirom" revision="android-5.1" groups="qcom" />
-  <project path="hardware/qcom/media" name="android_hardware_qcom_media" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/media-caf" name="android_hardware_qcom_media-caf" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/qcom/msm8960" name="platform/hardware/qcom/msm8960" groups="qcom_msm8960" />
-  <project path="hardware/qcom/msm8x26" name="platform/hardware/qcom/msm8x26" groups="qcom_msm8x26" />
-  <project path="hardware/qcom/msm8x27" name="platform/hardware/qcom/msm8x27" groups="qcom_msm8x27" />
-  <project path="hardware/qcom/msm8x74" name="platform/hardware/qcom/msm8x74" groups="qcom_msm8x74" />
-  <project path="hardware/qcom/msm8x84" name="platform/hardware/qcom/msm8x84" groups="qcom_msm8x84" />
-  <project path="hardware/qcom/power" name="android_hardware_qcom_power" remote="omnirom" revision="android-5.1" groups="qcom" />
-  <project path="hardware/qcom/sensors" name="platform/hardware/qcom/sensors" groups="qcom" />
-  <project path="hardware/qcom/wlan" name="android_hardware_qcom_wlan" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/ril" name="android_hardware_ril" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/samsung_slsi/exynos5" name="android_hardware_samsung_slsi_exynos5" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/ti/omap3" name="platform/hardware/ti/omap3" groups="omap3" />
-  <project path="hardware/ti/omap4-aah" name="platform/hardware/ti/omap4-aah" groups="omap4-aah" />
-  <project path="hardware/ti/omap4xxx" name="android_hardware_ti_omap4xxx" remote="omnirom" revision="android-5.1" groups="omap4" />
-  <project path="hardware/ti/wlan" name="android_hardware_ti_wlan" remote="omnirom" revision="android-5.1" />
-  <project path="hardware/ti/wpan" name="android_hardware_ti_wpan" remote="omnirom" revision="android-5.1" />
+  <project groups="pdk" name="platform/hardware/akm" path="hardware/akm"/>
+  <project groups="pdk" name="platform/hardware/broadcom/libbt" path="hardware/broadcom/libbt"/>
+  <project groups="pdk" name="platform/hardware/broadcom/wlan" path="hardware/broadcom/wlan"/>
+  <project groups="pdk" name="platform/hardware/intel/audio_media" path="hardware/intel/audio_media"/>
+  <project groups="pdk" name="platform/hardware/intel/bootstub" path="hardware/intel/bootstub"/>
+  <project groups="pdk" name="platform/hardware/intel/common/bd_prov" path="hardware/intel/common/bd_prov"/>
+  <project groups="pdk" name="platform/hardware/intel/common/libmix" path="hardware/intel/common/libmix"/>
+  <project groups="pdk" name="platform/hardware/intel/common/libstagefrighthw" path="hardware/intel/common/libstagefrighthw"/>
+  <project groups="pdk" name="platform/hardware/intel/common/libva" path="hardware/intel/common/libva"/>
+  <project groups="pdk" name="platform/hardware/intel/common/libwsbm" path="hardware/intel/common/libwsbm"/>
+  <project groups="pdk" name="platform/hardware/intel/common/omx-components" path="hardware/intel/common/omx-components"/>
+  <project groups="pdk" name="platform/hardware/intel/common/utils" path="hardware/intel/common/utils"/>
+  <project groups="pdk" name="platform/hardware/intel/common/wrs_omxil_core" path="hardware/intel/common/wrs_omxil_core"/>
+  <project groups="pdk" name="platform/hardware/intel/img/hwcomposer" path="hardware/intel/img/hwcomposer"/>
+  <project groups="pdk" name="platform/hardware/intel/img/libdrm" path="hardware/intel/img/libdrm"/>
+  <project groups="pdk" name="platform/hardware/intel/img/psb_headers" path="hardware/intel/img/psb_headers"/>
+  <project groups="pdk" name="platform/hardware/intel/img/psb_video" path="hardware/intel/img/psb_video"/>
+  <project groups="pdk" name="platform/hardware/invensense" path="hardware/invensense"/>
+  <project groups="pdk" name="platform/hardware/libhardware" path="hardware/libhardware"/>
+  <project groups="pdk" name="platform/hardware/libhardware_legacy" path="hardware/libhardware_legacy"/>
+  <project groups="pdk" name="platform/hardware/nvidia/audio" path="hardware/nvidia/audio"/>
+  <project groups="pdk" name="platform/hardware/nvidia/tegra124" path="hardware/nvidia/tegra124"/>
+  <project groups="qcom,default" name="platform/hardware/qcom/camera" path="hardware/qcom/camera" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="qcom,default" name="platform/hardware/qcom/media" path="hardware/qcom/media" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="qcom,default" name="platform/hardware/qcom/sensors" path="hardware/qcom/sensors" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="qcom,default" name="platform/hardware/qcom/wlan" path="hardware/qcom/wlan" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="pdk" name="platform/hardware/ril" path="hardware/ril" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="pdk" name="platform/hardware/samsung_slsi/exynos5" path="hardware/samsung_slsi/exynos5" remote="caf" revision="LA.BF.1.1.2_rb1.24"/>
+  <project groups="pdk" name="platform/hardware/ti/omap3" path="hardware/ti/omap3"/>
+  <project groups="pdk" name="platform/hardware/ti/omap4-aah" path="hardware/ti/omap4-aah"/>
+  <project groups="pdk" name="platform/hardware/ti/omap4xxx" path="hardware/ti/omap4xxx"/>
   <project path="libcore" name="android_libcore" remote="omnirom" revision="android-5.1" groups="pdk" />
   <project path="libnativehelper" name="platform/libnativehelper" groups="pdk" />
   <project path="ndk" name="platform/ndk" />
